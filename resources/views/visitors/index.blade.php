@@ -1,3 +1,5 @@
+@extends('visitors.layouts.main')
+@section('main-container')
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -12,7 +14,11 @@
                         <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">About Us</h6>
                         <h1 class="display-4">First Choice For Online Education Anywhere</h1>
                     </div>
-                    <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
+                    <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua
+                        sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et
+                        sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod,
+                        dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna
+                    </p>
                     <div class="row pt-3 mx-0">
                         <div class="col-3 px-0">
                             <div class="bg-success text-center p-4">
@@ -55,14 +61,17 @@
                         <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Why Choose Us?</h6>
                         <h1 class="display-4">Why You Should Start Learning with Us?</h1>
                     </div>
-                    <p class="mb-4 pb-2">Aliquyam accusam clita nonumy ipsum sit sea clita ipsum clita, ipsum dolores amet voluptua duo dolores et sit ipsum rebum, sadipscing et erat eirmod diam kasd labore clita est. Diam sanctus gubergren sit rebum clita amet.</p>
+                    <p class="mb-4 pb-2">Aliquyam accusam clita nonumy ipsum sit sea clita ipsum clita, ipsum dolores amet
+                        voluptua duo dolores et sit ipsum rebum, sadipscing et erat eirmod diam kasd labore clita est. Diam
+                        sanctus gubergren sit rebum clita amet.</p>
                     <div class="d-flex mb-3">
                         <div class="btn-icon bg-primary mr-4">
                             <i class="fa fa-2x fa-graduation-cap text-white"></i>
                         </div>
                         <div class="mt-n1">
                             <h4>Skilled Instructors</h4>
-                            <p>Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.</p>
+                            <p>Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy
+                                et eos dolor magna ipsum.</p>
                         </div>
                     </div>
                     <div class="d-flex mb-3">
@@ -71,7 +80,8 @@
                         </div>
                         <div class="mt-n1">
                             <h4>International Certificate</h4>
-                            <p>Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.</p>
+                            <p>Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy
+                                et eos dolor magna ipsum.</p>
                         </div>
                     </div>
                     <div class="d-flex">
@@ -80,7 +90,8 @@
                         </div>
                         <div class="mt-n1">
                             <h4>Online Classes</h4>
-                            <p class="m-0">Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.</p>
+                            <p class="m-0">Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna
+                                kasd no nonumy et eos dolor magna ipsum.</p>
                         </div>
                     </div>
                 </div>
@@ -116,7 +127,7 @@
                             <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
                         </div>
                     </div>
-                    <div class="w-100 bg-white text-center p-4" >
+                    <div class="w-100 bg-white text-center p-4">
                         <a class="btn btn-primary" href="detail.html">Course Detail</a>
                     </div>
                 </div>
@@ -131,7 +142,7 @@
                             <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
                         </div>
                     </div>
-                    <div class="w-100 bg-white text-center p-4" >
+                    <div class="w-100 bg-white text-center p-4">
                         <a class="btn btn-primary" href="detail.html">Course Detail</a>
                     </div>
                 </div>
@@ -146,7 +157,7 @@
                             <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
                         </div>
                     </div>
-                    <div class="w-100 bg-white text-center p-4" >
+                    <div class="w-100 bg-white text-center p-4">
                         <a class="btn btn-primary" href="detail.html">Course Detail</a>
                     </div>
                 </div>
@@ -161,7 +172,7 @@
                             <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
                         </div>
                     </div>
-                    <div class="w-100 bg-white text-center p-4" >
+                    <div class="w-100 bg-white text-center p-4">
                         <a class="btn btn-primary" href="detail.html">Course Detail</a>
                     </div>
                 </div>
@@ -176,7 +187,7 @@
                             <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
                         </div>
                     </div>
-                    <div class="w-100 bg-white text-center p-4" >
+                    <div class="w-100 bg-white text-center p-4">
                         <a class="btn btn-primary" href="detail.html">Course Detail</a>
                     </div>
                 </div>
@@ -191,7 +202,7 @@
                             <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
                         </div>
                     </div>
-                    <div class="w-100 bg-white text-center p-4" >
+                    <div class="w-100 bg-white text-center p-4">
                         <a class="btn btn-primary" href="detail.html">Course Detail</a>
                     </div>
                 </div>
@@ -205,12 +216,14 @@
                         <div class="form-row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="padding: 30px 20px;">
+                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name"
+                                        style="padding: 30px 20px;">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="padding: 30px 20px;">
+                                    <input type="email" class="form-control bg-light border-0" placeholder="Your Email"
+                                        style="padding: 30px 20px;">
                                 </div>
                             </div>
                         </div>
@@ -226,7 +239,8 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <button class="btn btn-primary btn-block" type="submit" style="height: 60px;">Sign Up Now</button>
+                                <button class="btn btn-primary btn-block" type="submit" style="height: 60px;">Sign Up
+                                    Now</button>
                             </div>
                         </div>
                     </form>
@@ -316,13 +330,17 @@
                         <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial</h6>
                         <h1 class="display-4">What Say Our Students</h1>
                     </div>
-                    <p class="m-0">Dolor est dolores et nonumy sit labore dolores est sed rebum amet, justo duo ipsum sanctus dolore magna rebum sit et. Diam lorem ea sea at. Nonumy et at at sed justo est nonumy tempor. Vero sea ea eirmod, elitr ea amet diam ipsum at amet. Erat sed stet eos ipsum diam</p>
+                    <p class="m-0">Dolor est dolores et nonumy sit labore dolores est sed rebum amet, justo duo ipsum
+                        sanctus dolore magna rebum sit et. Diam lorem ea sea at. Nonumy et at at sed justo est nonumy
+                        tempor. Vero sea ea eirmod, elitr ea amet diam ipsum at amet. Erat sed stet eos ipsum diam</p>
                 </div>
                 <div class="col-lg-7">
                     <div class="owl-carousel testimonial-carousel">
                         <div class="bg-white p-5">
                             <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
+                            <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est
+                                ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed
+                                stet amet elitr duo lorem</p>
                             <div class="d-flex flex-shrink-0 align-items-center mt-4">
                                 <img class="img-fluid mr-4" src="img/testimonial-2.jpg" alt="">
                                 <div>
@@ -333,7 +351,9 @@
                         </div>
                         <div class="bg-white p-5">
                             <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
+                            <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est
+                                ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed
+                                stet amet elitr duo lorem</p>
                             <div class="d-flex flex-shrink-0 align-items-center mt-4">
                                 <img class="img-fluid mr-4" src="img/testimonial-1.jpg" alt="">
                                 <div>
@@ -394,17 +414,23 @@
                         <form>
                             <div class="row">
                                 <div class="col-6 form-group">
-                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name" required="required">
+                                    <input type="text"
+                                        class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                                        placeholder="Your Name" required="required">
                                 </div>
                                 <div class="col-6 form-group">
-                                    <input type="email" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" required="required">
+                                    <input type="email"
+                                        class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                                        placeholder="Your Email" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Subject" required="required">
+                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                                    placeholder="Subject" required="required">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message" required="required"></textarea>
+                                <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message"
+                                    required="required"></textarea>
                             </div>
                             <div>
                                 <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
@@ -416,3 +442,4 @@
         </div>
     </div>
     <!-- Contact End -->
+@endsection
