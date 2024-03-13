@@ -1,4 +1,5 @@
-
+@extends('visitors.layouts.main')
+@section('main-container')
     <!-- Team Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -67,6 +68,6 @@
         </div>
     </div>
     <!-- Team End -->
-
+@endsection
 
   

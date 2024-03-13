@@ -1,6 +1,8 @@
 
 
-    <!-- Detail Start -->
+@extends('visitors.layouts.main')
+@section('main-container')
+  <!-- Detail Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row">
@@ -10,7 +12,7 @@
                             <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Course Detail</h6>
                             <h1 class="display-4">Web design & development courses for beginners</h1>
                         </div>
-                        <img class="img-fluid rounded w-100 mb-4" src="img/header.jpg" alt="Image">
+                        <img class="img-fluid rounded w-100 mb-4" src="{{ asset('visitors') }}/img/header.jpg" alt="Image">
                         <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
                         
                         <p>Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem.
@@ -23,7 +25,7 @@
                     <h2 class="mb-3">Related Courses</h2>
                     <div class="owl-carousel related-carousel position-relative" style="padding: 0 30px;">
                         <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                            <img class="img-fluid" src="img/courses-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('visitors') }}/img/courses-1.jpg" alt="">
                             <div class="courses-text">
                                 <h4 class="text-center text-white px-3">Web design & development courses for
                                     beginners</h4>
@@ -37,7 +39,7 @@
                             </div>
                         </a>
                         <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                            <img class="img-fluid" src="img/courses-2.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('visitors') }}/img/courses-2.jpg" alt="">
                             <div class="courses-text">
                                 <h4 class="text-center text-white px-3">Web design & development courses for
                                     beginners</h4>
@@ -51,7 +53,7 @@
                             </div>
                         </a>
                         <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                            <img class="img-fluid" src="img/courses-3.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('visitors') }}/img/courses-3.jpg" alt="">
                             <div class="courses-text">
                                 <h4 class="text-center text-white px-3">Web design & development courses for
                                     beginners</h4>
@@ -129,7 +131,7 @@
                     <div class="mb-5">
                         <h2 class="mb-4">Recent Courses</h2>
                         <a class="d-flex align-items-center text-decoration-none mb-4" href="">
-                            <img class="img-fluid rounded" src="img/courses-80x80.jpg" alt="">
+                            <img class="img-fluid rounded" src="{{ asset('visitors') }}/img/courses-80x80.jpg" alt="">
                             <div class="pl-3">
                                 <h6>Web design & development courses for beginners</h6>
                                 <div class="d-flex">
@@ -139,7 +141,7 @@
                             </div>
                         </a>
                         <a class="d-flex align-items-center text-decoration-none mb-4" href="">
-                            <img class="img-fluid rounded" src="img/courses-80x80.jpg" alt="">
+                            <img class="img-fluid rounded" src="{{ asset('visitors') }}/img/courses-80x80.jpg" alt="">
                             <div class="pl-3">
                                 <h6>Web design & development courses for beginners</h6>
                                 <div class="d-flex">
@@ -149,7 +151,7 @@
                             </div>
                         </a>
                         <a class="d-flex align-items-center text-decoration-none mb-4" href="">
-                            <img class="img-fluid rounded" src="img/courses-80x80.jpg" alt="">
+                            <img class="img-fluid rounded" src="{{ asset('visitors') }}/img/courses-80x80.jpg" alt="">
                             <div class="pl-3">
                                 <h6>Web design & development courses for beginners</h6>
                                 <div class="d-flex">
@@ -159,7 +161,7 @@
                             </div>
                         </a>
                         <a class="d-flex align-items-center text-decoration-none" href="">
-                            <img class="img-fluid rounded" src="img/courses-80x80.jpg" alt="">
+                            <img class="img-fluid rounded" src="{{ asset('visitors') }}/img/courses-80x80.jpg" alt="">
                             <div class="pl-3">
                                 <h6>Web design & development courses for beginners</h6>
                                 <div class="d-flex">
@@ -175,5 +177,5 @@
     </div>
     <!-- Detail End -->
 
-
+@endsection
   

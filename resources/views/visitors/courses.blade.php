@@ -1,4 +1,5 @@
-
+@extends('visitors.layouts.main')
+@section('main-container')
     <!-- Courses Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -13,7 +14,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                        <img class="img-fluid" src="img/courses-1.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('visitors') }}/img/courses-1.jpg" alt="">
                         <div class="courses-text">
                             <h4 class="text-center text-white px-3">Web design & development courses for
                                 beginners</h4>
@@ -29,7 +30,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                        <img class="img-fluid" src="img/courses-2.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('visitors') }}/img/courses-2.jpg" alt="">
                         <div class="courses-text">
                             <h4 class="text-center text-white px-3">Web design & development courses for
                                 beginners</h4>
@@ -45,7 +46,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                        <img class="img-fluid" src="img/courses-3.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('visitors') }}/img/courses-3.jpg" alt="">
                         <div class="courses-text">
                             <h4 class="text-center text-white px-3">Web design & development courses for
                                 beginners</h4>
@@ -61,7 +62,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                        <img class="img-fluid" src="img/courses-4.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('visitors') }}/img/courses-4.jpg" alt="">
                         <div class="courses-text">
                             <h4 class="text-center text-white px-3">Web design & development courses for
                                 beginners</h4>
@@ -77,7 +78,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                        <img class="img-fluid" src="img/courses-5.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('visitors') }}/img/courses-5.jpg" alt="">
                         <div class="courses-text">
                             <h4 class="text-center text-white px-3">Web design & development courses for
                                 beginners</h4>
@@ -93,7 +94,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                        <img class="img-fluid" src="img/courses-6.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('visitors') }}/img/courses-6.jpg" alt="">
                         <div class="courses-text">
                             <h4 class="text-center text-white px-3">Web design & development courses for
                                 beginners</h4>
@@ -132,6 +133,6 @@
         </div>
     </div>
     <!-- Courses End -->
-
+@endsection
 
   

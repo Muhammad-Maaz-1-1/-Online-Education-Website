@@ -19,10 +19,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{ asset('visitors') }}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('visitors') }}/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -63,7 +63,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="index.html" class="navbar-brand ml-lg-3">
+            <a href="{{ route('home') }}" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>Edukate</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -71,21 +71,21 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="course.html" class="nav-item nav-link">Courses</a>
-                    <div class="nav-item dropdown">
+                    <a href="{{ route('home') }}" class="nav-item nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+                    <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+                    <a href="{{ route('visitors_courses') }}" class="nav-item nav-link {{ request()->routeIs('visitors_courses')?'active':'' }}">Courses</a>
+                <a href="{{ route('feature') }}" class="nav-item nav-link {{ request()->routeIs('feature')?'active':'' }}">Our Features</a>
+                    {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0">
                             <a href="detail.html" class="dropdown-item">Course Detail</a>
-                            <a href="feature.html" class="dropdown-item">Our Features</a>
                             <a href="team.html" class="dropdown-item">Instructors</a>
                             <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div> --}}
+                    <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact')?'active':'' }}">Contact</a>
                 </div>
-                <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Join Us</a>
+                <a href="{{ route('register') }}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Join Us</a>
             </div>
         </nav>
     </div>
@@ -95,8 +95,23 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
         <div class="container text-center my-5 py-5">
-            <h1 class="text-white mt-4 mb-4">Learn From Home</h1>
-            <h1 class="text-white display-1 mb-5">Education Courses</h1>
+            @if(Request::is('/')) {{-- Check if it's the home page --}}
+             <div>
+
+                <h1 class="text-white mt-4 mb-4">Learn From Home</h1>
+                <h1 class="text-white display-1 mb-5">Education Courses</h1>
+            </div>
+            @else {{-- For all other pages (e.g., About/Course) --}}
+            <div>
+            
+                <h1 class="text-white display-1">{{ request()->segment(1) }}</h1>
+                <div class="d-inline-flex text-white mb-5">
+                    <p class="m-0 text-uppercase"><a class="text-white" href="{{ route('home') }}">Home</a></p>
+                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase">{{ request()->segment(1) }}</p>
+                </div>
+            </div>
+            @endif
             <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
                 <div class="input-group">
                     <div class="input-group-prepend">

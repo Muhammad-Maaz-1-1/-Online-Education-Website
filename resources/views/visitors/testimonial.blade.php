@@ -1,5 +1,7 @@
 
-    <!-- Testimonial Start -->
+@extends('visitors.layouts.main')
+@section('main-container')
+  <!-- Testimonial Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row align-items-center">
@@ -42,4 +44,4 @@
     <!-- Testimonial Start -->
 
 
-  
+  @endsection

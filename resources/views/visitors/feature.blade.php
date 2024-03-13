@@ -1,6 +1,7 @@
 
 
-
+@extends('visitors.layouts.main')
+@section('main-container')
     <!-- Feature Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -41,7 +42,7 @@
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/feature.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="{{ asset('visitors') }}/img/feature.jpg" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -49,3 +50,4 @@
     </div>
     <!-- Feature Start -->
 
+    @endsection
