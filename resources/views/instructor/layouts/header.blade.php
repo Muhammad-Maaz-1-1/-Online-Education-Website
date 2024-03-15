@@ -40,7 +40,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('instructor') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -51,8 +51,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}  ">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+            <li class="nav-item {{ request()->routeIs('instructor') ? 'active' : '' }}  ">
+                <a class="nav-link" href="{{ route('instructor') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -63,42 +63,16 @@
             <!-- Heading -->
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item {{ request()->routeIs('courses') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('courses') }}">
+            <li class="nav-item {{ request()->routeIs('instructor_courses') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('instructor_courses') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>All courses</span></a>
             </li>
-            <li class="nav-item {{ request()->routeIs('category') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('category') }}">
+            <li class="nav-item {{ request()->routeIs('instructor_category') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('instructor_category') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Courses Category</span></a>
             </li>
-            <li class="nav-item {{ request()->routeIs('site_setting') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('site_setting') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Site Setting</span></a>
-            </li>
-            <li class="nav-item {{ request()->routeIs('home_about') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('home_about') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Home About</span></a>
-            </li>
-            <li class="nav-item {{ request()->routeIs('home_why_choose_us') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('home_why_choose_us') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>home why choose us</span></a>
-            </li>
-            <li class="nav-item {{ request()->routeIs('testimonials') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('testimonials') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>testimonials</span></a>
-            </li>
-            <li class="nav-item {{ request()->routeIs('instructors') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('instructors') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>instructors</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -152,7 +126,7 @@
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li
-                            class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}  dropdown no-arrow d-sm-none">
+                            class="nav-item {{ request()->routeIs('instructor') ? 'active' : '' }}  dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
@@ -177,7 +151,7 @@
 
                         <!-- Nav Item - Alerts -->
                         <li
-                            class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}  dropdown no-arrow mx-1">
+                            class="nav-item {{ request()->routeIs('instructor') ? 'active' : '' }}  dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
@@ -303,23 +277,17 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span
                                     class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
-                                <img class="img-profile rounded-circle" src="{{ asset('uploads').'/'.$user->image }}">
+                                <img class="img-profile rounded-circle"
+                                    src="{{ asset('uploads') . '/' . $user->image }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('profile') }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal"
                                     data-target="#logoutModal">

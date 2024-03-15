@@ -9,4 +9,5 @@ class categoryModel extends Model
 {
     use HasFactory;
     protected $fillabale = ['name'];
+
 }

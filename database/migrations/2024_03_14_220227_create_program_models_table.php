@@ -11,16 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('courses_models', function (Blueprint $table) {
+        Schema::create('program_models', function (Blueprint $table) {
             $table->id();
+
             $table->string('title');
+
+            $table->string('image');
+
             $table->text('description');
+
             $table->unsignedInteger('lectures'); // Assuming lectures will be an integer
-            $table->string('duration'); // Changed 'durations' to 'duration' for consistency
+
+            $table->string('durations'); // Changed 'durations' to 'duration' for consistency
+
             $table->string('skill'); // Renamed 'skill' to 'skill_level' for clarity
+
             $table->string('language');
+
             $table->decimal('price', 8, 2); // Changed 'price' to decimal for better precision
-            $table->foreignId('category_id')->constrained(); // Added foreign key for category relationship
+
+            $table->unsignedBigInteger('category_id'); // Assuming category_id is a big integer
+            $table->foreign('category_id')->references('id')->on('category_models');
+            $table->foreignId('instructor_id')->constrained('users');
             $table->timestamps();
         });
     }
@@ -30,6 +42,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('courses_models');
+        Schema::dropIfExists('program_models');
     }
 };

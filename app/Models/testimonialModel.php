@@ -9,4 +9,5 @@ class testimonialModel extends Model
 {
     use HasFactory;
     protected $fillabale = ['name', 'image', 'description'];
+
 }
