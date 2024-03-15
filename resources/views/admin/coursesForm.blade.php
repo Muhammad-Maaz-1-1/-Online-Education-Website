@@ -24,27 +24,28 @@
                         <label for="image">FEATURED IMAGE</label>
                         {{-- <input name="image" class="form-control form-control-user2" type="file" required=""> --}}
                         {{--  --}}
-                        <input type="file" class="form-control form-control-user2" id="choose-file" name="image" accept="image/*" />
+                        <input type="file" class="form-control form-control-user2" id="choose-file" name="image"
+                            accept="image/*" />
                         <div id="img-preview"></div>
                         <script>
                             const chooseFile = document.getElementById("choose-file");
-const imgPreview = document.getElementById("img-preview");
+                            const imgPreview = document.getElementById("img-preview");
 
-chooseFile.addEventListener("change", function () {
-  getImgData();
-});
+                            chooseFile.addEventListener("change", function() {
+                                getImgData();
+                            });
 
-function getImgData() {
-  const files = chooseFile.files[0];
-  if (files) {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(files);
-    fileReader.addEventListener("load", function () {
-      imgPreview.style.display = "block";
-      imgPreview.innerHTML = '<img class="imagePreview" src="' + this.result + '" />';
-    });    
-  }
-}
+                            function getImgData() {
+                                const files = chooseFile.files[0];
+                                if (files) {
+                                    const fileReader = new FileReader();
+                                    fileReader.readAsDataURL(files);
+                                    fileReader.addEventListener("load", function() {
+                                        imgPreview.style.display = "block";
+                                        imgPreview.innerHTML = '<img class="imagePreview" src="' + this.result + '" />';
+                                    });
+                                }
+                            }
                         </script>
                         {{--  --}}
 
@@ -73,6 +74,7 @@ function getImgData() {
                     <label for="lectures">Total Lectures<span class="text-danger">*</span></label>
                     <input name="lectures" type="text" class="form-control form-control-user" placeholder="lectures"
                         required="">
+                    <input type="hidden" name="instructor_id" value="{{ auth()->user()->id }}">
                 </div>
                 <div class="col-lg-6 mb-3 mt-2">
                     <label for="durations">DURATIONS<span class="text-danger">*</span></label>

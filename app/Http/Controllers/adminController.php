@@ -15,31 +15,45 @@ class adminController extends Controller
     //
     public function index()
     {
-        return view('admin.index');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.index', compact('user'));
     }
     public function login()
     {
-        return view('admin.login');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.login', compact('user'));
     }
     public function siteSetting()
     {
-        return view('admin.siteSetting');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.siteSetting', compact('user'));
     }
     public function homeAbout()
     {
-        return view('admin.homeAbout');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.homeAbout', compact('user'));
     }
     public function homeWhyChooseUs()
     {
-        return view('admin.homeWhyChooseUs');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.homeWhyChooseUs', compact('user'));
     }
     public function category()
     {
-        return view('admin.category');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.category', compact('user'));
     }
     public function categoryForm()
     {
-        return view('admin.categoryForm');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.categoryForm', compact('user'));
     }
     public function categoryFormSubmit(Request $request)
     {
@@ -48,17 +62,22 @@ class adminController extends Controller
         }
         $category = new categoryModel();
         $category->name = $request->category;
-        $category->save();
         return redirect()->back()->with('success', 'Category added successfully.');
     }
     public function courses()
     {
-        return view('admin.courses');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        $course = programModel::get();
+        return view('admin.courses', compact('user','course'));
     }
     public function coursesForm()
     {
+
         $category = categoryModel::get();
-        return view('admin.coursesForm', compact('category'));
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.coursesForm', compact('category', 'user'));
     }
     public function coursesFormSubmit(Request $request)
     {
@@ -79,23 +98,31 @@ class adminController extends Controller
         $courses->category_id = $request->category;
         $courses->instructor_id = $request->instructor_id;
         $courses->save();
-        return redirect()->back()->with('sucess', 'course uploaded successfully');
+        return redirect()->route('lecture', ['id' => $courses->id]);
     }
     public function instructors()
     {
-        return view('admin.instructors');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.instructors', compact('user'));
     }
     public function instructorsForm()
     {
-        return view('admin.instructorsForm');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.instructorsForm', compact('user'));
     }
     public function testimonials()
     {
-        return view('admin.testimonials');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.testimonials', compact('user'));
     }
     public function testimonialsForm()
     {
-        return view('admin.testimonialsForm');
+        $userId = auth()->user()->id;
+        $user = User::where('id', $userId)->first();
+        return view('admin.testimonialsForm', compact('user'));
     }
 
     public function logout(Request $request)
@@ -122,7 +149,7 @@ class adminController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->skill = $request->skill;
-       
+
         $image_path = '';
         if ($request->image) {
             $image_path = rand(0, 9999) . time() . '.' . $request->image->getClientOriginalName();

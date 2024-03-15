@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class programModel extends Model
 {
     use HasFactory;
-    protected $fillabale = ['title', 'image', 'description', 'lectures', 'durations', 'skill', 'language', 'price', 'category_id', 'instructor_id'];
+    protected $fillabale = ['title', 'image', 'description', 'lectures', 'durations', 'skill', 'language', 'price', 'category_id', 'instructor_id','status'];
 }

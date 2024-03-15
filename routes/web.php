@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\instructorController;
+use App\Http\Controllers\lectureController;
 use App\Http\Controllers\visitorsController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/instructors/form', [adminController::class, 'instructorsForm'])->name('admin_instructors_form');
     Route::get('/admin/testimonials', [adminController::class, 'testimonials'])->name('testimonials');
     Route::get('/admin/testimonials/form', [adminController::class, 'testimonialsForm'])->name('admin_testimonials_form');
+    // 
+    Route::get('/admin/courses/lectures/{id}', [lectureController::class, 'index'])->name('lecture');
+    Route::post('/admin/courses/lectures/submit/', [lectureController::class, 'lectureSubmit'])->name('lecture_submit');
+
 });
 
 

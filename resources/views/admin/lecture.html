@@ -1,0 +1,86 @@
+@include('admin.layouts.header')
+<style>
+        .lecture {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .lecture .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .lecture h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .lecture .form-group {
+            margin-bottom: 15px;
+        }
+
+        .lecture label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .lecture input[type="text"],
+        .lecture input[type="file"],
+        .lecture textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .lecturetextarea {
+            height: 150px;
+        }
+
+        .lecture input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .lecture input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+</style>
+<div class="lecture">
+
+<div class="container">
+    <h1>Add Lectures</h1>
+    <form action="{{ route('lecture_submit') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="course_id" value="{{ $course_id }}">
+        <div class="form-group">
+            <label for="title">Lecture Title:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="video">Add Video </label>
+            <input type="file" name="videos" multiple accept="video/*" required>
+
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add Lecture">
+        </div>
+    </form>
+</div>
+</div>
+
+@include('admin.layouts.footer')
