@@ -37,6 +37,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
+        @if (auth()->user()->is_admin == 1)
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -117,6 +118,62 @@
             </div>
 
         </ul>
+        @else
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('instructor') }}">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item {{ request()->routeIs('instructor') ? 'active' : '' }}  ">
+                <a class="nav-link" href="{{ route('instructor') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item {{ request()->routeIs('instructor_courses') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('instructor_courses') }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>All courses</span></a>
+            </li>
+            <li class="nav-item {{ request()->routeIs('instructor_category') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('instructor_category') }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Courses Category</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components,
+                    and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
+                    Pro!</a>
+            </div>
+
+        </ul>
+        @endif
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -303,7 +360,8 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span
                                     class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
-                                <img class="img-profile rounded-circle" src="{{ asset('uploads').'/'.$user->image }}">
+                                <img class="img-profile rounded-circle"
+                                    src="{{ asset('uploads') . '/' . $user->image }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

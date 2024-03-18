@@ -6,7 +6,8 @@
         padding: 0;
     }
 
-    .lecture .container, .lecturesShow {
+    .lecture .container,
+    .lecturesShow {
         max-width: 800px;
         margin: 20px auto;
         background-color: #fff;
@@ -78,6 +79,13 @@
             </div>
             <div class="form-group">
                 <input type="submit" id="submitBtn" value="Add Lecture">
+                @if ($course->where('course_id', $course_id)->isNotEmpty())
+                    <a href="{{ route('course_published', $course_id) }}" class="btn bg-primary text-light">Course
+                        Published</a>
+                @else
+                    <a href="#" class="btn btn-secondary text-light">Course Not Published</a>
+                @endif
+
             </div>
             <div id="loadingMessage" style="display: none;">
                 <p>Loading...</p>
@@ -125,7 +133,8 @@
                             console.error('Error:', error);
                             loadingMessage.style.display = 'none'; // Hide loading message
                             alert(
-                            'Error occurred. Please try again.'); // Display error message (replace with your own logic)
+                                'Error occurred. Please try again.'
+                            ); // Display error message (replace with your own logic)
                         });
                 });
             });
@@ -136,39 +145,38 @@
 
 <style>
     /* Table styles */
-.lecturesShow .table {
-    width: 100%;
-    border-collapse: collapse;
-}
+    .lecturesShow .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-.lecturesShow .table th,
-.lecturesShow .table td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
+    .lecturesShow .table th,
+    .lecturesShow .table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
 
-/* Table header styles */
-.lecturesShow .table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    color: #333;
-}
+    /* Table header styles */
+    .lecturesShow .table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #333;
+    }
 
-/* Table row styles */
-.lecturesShow .table tr {
-    transition: background-color 0.3s;
-}
+    /* Table row styles */
+    .lecturesShow .table tr {
+        transition: background-color 0.3s;
+    }
 
-/* Hover effect for table rows */
-.lecturesShow .table tr:hover {
-    background-color: #f9f9f9;
-}
-
+    /* Hover effect for table rows */
+    .lecturesShow .table tr:hover {
+        background-color: #f9f9f9;
+    }
 </style>
 
 <div class="lecturesShow">
- 
+
     <table id="lecture-table">
         <thead>
             <tr>
@@ -177,11 +185,16 @@
             </tr>
         </thead>
         <tbody id="lecture-list">
-            @foreach($course as $key => $value)
+            @foreach ($course as $key => $value)
+            @php
+            $videoPaths = json_decode($value->video);
+        @endphp
                 <tr>
                     <td>{{ $value->title }}</td>
                     <td>
-                        <video src="{{ asset('uploads/' . $value->videos) }}" controls></video>
+                        @foreach ($videoPaths as $videoPath)
+                        <video type="video/mp4" src="{{ asset($videoPath) }}" controls></video>
+                    @endforeach
                     </td>
                 </tr>
             @endforeach

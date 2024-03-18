@@ -69,7 +69,7 @@
                         <h3 class="text-white py-3 px-4 m-0">Course Features</h3>
                         <div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Teacher</h6>
-                            <h6 class="text-white my-3">John Doe</h6>
+                            <h6 class="text-white my-3">{{ $courses->user->name }}</h6>
                         </div>
                         <div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Rating</h6>
@@ -93,33 +93,32 @@
                         </div>
                         <h5 class="text-white py-3 px-4 m-0">course Price: ${{ $courses->price }}</h5>
                         <div class="py-3 px-4">
-                            <a class="btn btn-block btn-secondary py-3 px-5" href="">Enroll Now</a>
+                            <form action="{{ route('checkout') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="course_id" value="{{ $courses->id }}" id="">
+                                <input type="hidden" name="instructor_id" value="{{ $courses->instructor_id }}"
+                                    id="">
+                                @if (auth()->check())
+                                    <button class="btn btn-block btn-secondary py-3 px-5" type="submit">Enroll
+                                        Now</button>
+                                @else
+                                   <a href="{{ route('login') }}" class="btn btn-block btn-secondary py-3 px-5">Enroll Now</a>
+                                @endif
+
+                            </form>
                         </div>
                     </div>
 
                     <div class="mb-5">
                         <h2 class="mb-3">Categories</h2>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                <a href="" class="text-decoration-none h6 m-0">Web Design</a>
-                                <span class="badge badge-primary badge-pill">150</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                <a href="" class="text-decoration-none h6 m-0">Web Development</a>
-                                <span class="badge badge-primary badge-pill">131</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                <a href="" class="text-decoration-none h6 m-0">Online Marketing</a>
-                                <span class="badge badge-primary badge-pill">78</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                <a href="" class="text-decoration-none h6 m-0">Keyword Research</a>
-                                <span class="badge badge-primary badge-pill">56</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                <a href="" class="text-decoration-none h6 m-0">Email Marketing</a>
-                                <span class="badge badge-primary badge-pill">98</span>
-                            </li>
+                            @foreach ($category as $key => $value)
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <a href="" class="text-decoration-none h6 m-0">{{ $value->name }}</a>
+                                    <span class="badge badge-primary badge-pill">{{ $value->programs->count() }}</span>
+                                </li>
+                            @endforeach
+
                         </ul>
                     </div>
 

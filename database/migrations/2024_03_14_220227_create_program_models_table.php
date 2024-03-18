@@ -31,8 +31,8 @@ return new class extends Migration
             $table->decimal('price', 8, 2); // Changed 'price' to decimal for better precision
 
             $table->unsignedBigInteger('category_id'); // Assuming category_id is a big integer
-            $table->boolean('status')->default(false);
             $table->foreign('category_id')->references('id')->on('category_models');
+            $table->boolean('status')->default(false);
             $table->foreignId('instructor_id')->constrained('users');
             $table->timestamps();
         });

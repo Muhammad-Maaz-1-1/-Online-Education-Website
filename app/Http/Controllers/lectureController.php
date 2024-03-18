@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Str;
 use App\Models\lecturesModel;
 use App\Models\programModel;
 use App\Models\User;
@@ -16,9 +16,9 @@ class lectureController extends Controller
         $course = lecturesModel::where('course_id', $course_id)->get();
         $userId = auth()->user()->id;
         $user = User::where('id', $userId)->first();
-        return view('admin.lecture', compact('user', 'course_id','course'));
+        return view('admin.lecture', compact('user', 'course_id', 'course'));
     }
-    
+
     // public function lectureSubmit(Request $request)
     // {
     //     $lecture =  new lecturesModel();
@@ -63,5 +63,19 @@ class lectureController extends Controller
         $lecture->save();
 
         return response()->json(['message' => 'Lecture added successfully'], 200);
+    }
+    public function coursePublished($id)
+    {
+        $course_id = $id;
+        $course = programModel::where('id', $course_id)->first();
+        $course->status = 1;
+        $course->update();
+        return redirect()->back();
+    }
+    public function courseDelete($id)
+    {
+        $course_id = $id;
+        $course = programModel::where('id', $course_id)->delete();
+        return redirect()->back();
     }
 }

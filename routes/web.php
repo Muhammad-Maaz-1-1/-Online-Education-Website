@@ -3,6 +3,8 @@
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\instructorController;
 use App\Http\Controllers\lectureController;
+use App\Http\Controllers\stripeController;
+use App\Http\Controllers\studentController;
 use App\Http\Controllers\visitorsController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +29,11 @@ Route::get('/feature', [visitorsController::class, 'feature'])->name('feature');
 Route::get('/courses', [visitorsController::class, 'courses'])->name('visitors_courses');
 Route::get('/courses/detail/{id}', [visitorsController::class, 'coursesDetail'])->name('course_detail');
 Route::get('/contact', [visitorsController::class, 'contact'])->name('contact');
+Route::get('/order', [visitorsController::class, 'order'])->name('order');
 Route::get('/logout', [adminController::class, 'logout'])->name('logout');
+
+
+
 
 Route::group(['middleware' => 'admin'], function () {
     // admin controller
@@ -41,7 +47,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/admin/category/form/submit', [adminController::class, 'categoryFormSubmit'])->name('category_form_submit');
     Route::get('/admin/courses', [adminController::class, 'courses'])->name('courses');
     Route::get('/admin/courses/form', [adminController::class, 'coursesForm'])->name('admin_course_form');
-    Route::post('/admin/courses/form/submit', [adminController::class, 'coursesFormSubmit'])->name('admin_course_form_submit');
+
     Route::get('/admin/disount-form', [adminController::class, 'discountForm'])->name('discount_form');
     Route::get('/admin/instructors', [adminController::class, 'instructors'])->name('instructors');
     Route::get('/admin/instructors/form', [adminController::class, 'instructorsForm'])->name('admin_instructors_form');
@@ -50,9 +56,13 @@ Route::group(['middleware' => 'admin'], function () {
     // 
     Route::get('/admin/courses/lectures/{id}', [lectureController::class, 'index'])->name('lecture');
     Route::post('/admin/courses/lectures/submit/', [lectureController::class, 'lectureSubmit'])->name('lecture_submit');
-
+    Route::get('/admin/courses/lectures/course/published/{id}', [lectureController::class, 'coursePublished'])->name('course_published');
+    Route::get('/admin/courses/delete/{id}', [lectureController::class, 'courseDelete'])->name('course_delete');
 });
 
+Route::post('/admin/courses/form/submit', [adminController::class, 'coursesFormSubmit'])->name('admin_course_form_submit');
+Route::post('/checkout', [adminController::class, 'checkout'])->name('checkout');
+Route::post('/checkout/submit', [stripeController::class, 'stripePost'])->name('stripe.post');
 
 
 
@@ -66,4 +76,14 @@ Route::group(['middleware' => 'instructor'], function () {
     Route::get('/instructor/category/form', [instructorController::class, 'instructorCategoryForm'])->name('instructor_category_form');
     Route::get('/instructor/profile', [adminController::class, 'profile'])->name('profile');
     Route::post('/instructor/profile/submit', [adminController::class, 'profileFormSubmit'])->name('profile_form_submit');
+    // 
+    Route::get('/instructor/lectures/{id}', [lectureController::class, 'index'])->name('lecture');
+    Route::post('/instructor/lectures/submit/', [lectureController::class, 'lectureSubmit'])->name('lecture_submit');
+    Route::get('/instructor/lectures/course/published/{id}', [lectureController::class, 'coursePublished'])->name('course_published');
+    Route::get('/instructor/delete/{id}', [lectureController::class, 'courseDelete'])->name('course_delete');
 });
+
+
+Route::get('/student/dashboard', [studentController::class, 'index'])->name('student_dashboard');
+Route::get('/student/dashboard/courses', [studentController::class, 'courses'])->name('student_courses');
+Route::get('/student/lecture/{id}', [studentController::class, 'studentLecture'])->name('student_lecture');

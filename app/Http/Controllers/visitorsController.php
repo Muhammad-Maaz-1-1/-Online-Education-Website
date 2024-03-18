@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categoryModel;
+use App\Models\enrollmentModel;
 use App\Models\programModel;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,6 +14,7 @@ class visitorsController extends Controller
     //
     public function index()
     {
+
         return view('visitors.index');
     }
     public function about()
@@ -24,13 +27,15 @@ class visitorsController extends Controller
     }
     public function courses()
     {
-        $courses = programModel::get();
+        $courses = programModel::where('status', 1)->get();
+
         return view('visitors.courses', compact('courses'));
     }
     public function coursesDetail($id)
     {
+        $category = categoryModel::get();
         $courses = programModel::where('id', $id)->first();
-        return view('visitors.detail', compact('courses'));
+        return view('visitors.detail', compact('courses', 'category'));
     }
     public function contact()
     {
@@ -74,5 +79,11 @@ class visitorsController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
+    }
+    public function order()
+    {
+        $userId = auth()->user()->id;
+        $enrollment = enrollmentModel::where('user_id', $userId)->where('status', true)->get();
+        return view('visitors.order', compact('enrollment'));
     }
 }

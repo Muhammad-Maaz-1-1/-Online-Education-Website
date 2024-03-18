@@ -15,7 +15,7 @@
                     </script>
                     <p>{{ session('success') }}</p>
                 @endif
-                <input type="hidden" id="instructor_id"value="{{ auth()->id() }}">
+                <input type="hidden" id="instructor_id" name="instructor_id" value="{{ auth()->id() }}">
                 <div class="form-group row">
                     <div class="col-lg-6 mb-3 mt-2">
                         <label for="title">TITLE <span class="text-danger">*</span></label>
@@ -102,9 +102,9 @@
                     <label for="status">COURSE CATEGORY<span class="text-danger">*</span></label>
                     <select name="category" class="form-control form-control-user1">
                         <option value="category select">category select</option>
-                        {{-- @foreach ($category as $key => $value)
+                        @foreach ($category as $key => $value)
                             <option value="{{ $value->id }}">{{ $value->name }}</option>
-                        @endforeach --}}
+                        @endforeach
                     </select>
                 </div>
 

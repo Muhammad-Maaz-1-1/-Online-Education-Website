@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\categoriesModel;
 use App\Models\categoryModel;
 use App\Models\courseCategoryModel;
+use App\Models\enrollmentModel;
 use App\Models\programModel;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -69,7 +70,7 @@ class adminController extends Controller
         $userId = auth()->user()->id;
         $user = User::where('id', $userId)->first();
         $course = programModel::get();
-        return view('admin.courses', compact('user','course'));
+        return view('admin.courses', compact('user', 'course'));
     }
     public function coursesForm()
     {
@@ -159,4 +160,16 @@ class adminController extends Controller
         $user->update();
         return redirect()->back();
     }
+    public function checkout(Request $request)
+    {
+        $userId = auth()->user()->id;
+        $enrollment = new enrollmentModel;
+        $enrollment->course_id = $request->course_id;
+       
+        $enrollment->user_id = $userId;
+        $enrollment->save();
+        $enrollmentCourse = enrollmentModel::where('course_id', $request->course_id)->first();
+        return view('visitors.checkout', compact('enrollmentCourse'));
+    }
+  
 }

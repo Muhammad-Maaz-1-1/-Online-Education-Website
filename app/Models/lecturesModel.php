@@ -9,4 +9,12 @@ class lecturesModel extends Model
 {
     use HasFactory;
     protected $fillabale = ['title', 'video', 'description', 'course_id'];
+    public function course()
+    {
+        return $this->belongsTo(enrollmentModel::class, 'course_id');
+    }
+    public function enrollment()
+    {
+        return $this->hasMany(enrollmentModel::class, 'course_id');
+    }
 }

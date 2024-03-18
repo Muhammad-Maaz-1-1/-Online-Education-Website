@@ -25,7 +25,14 @@ class User extends Authenticatable
         'skill',
         'password',
     ];
-
+    public function course()
+    {
+        return $this->hasMany(ProgramModel::class, 'instructor_id');
+    }
+    public function user()
+    {
+        return $this->hasMany(User::class, 'user_id');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
